@@ -7,6 +7,17 @@
 
 using namespace std;
 
+void jalarCarta(Mazo* mazo, int* numJugadores, Ronda* ronda) {
+    int filaSeleccionada = 0;
+    Carta carta = mazo->tomarCarta();
+    cout<<"Has robado: "<< carta.toString() << endl;
+
+    do {
+        cout << "Selecciona una fila para colocar la carta (1-" << numJugadores << "): ";
+        cin >> filaSeleccionada;
+    } while (!ronda->agregarCartaAFila(filaSeleccionada - 1, carta));
+
+}
 
 int main() {
     int numJugadores;
@@ -61,14 +72,16 @@ int main() {
             ronda.mostrarFilas();
 
             if (ronda.todasFilasLlenas()) {
-                cout << "Todas las filas están llenas. " << jugadorActual.getNombre() << " debe tomar una fila." << endl;
+                jalarCarta(&mazo, &numJugadores, &ronda);
+
+                /*cout << "Todas las filas están llenas. " << jugadorActual.getNombre() << " debe tomar una fila." << endl;
                 int filaSeleccionada;
                 do {
                     cout << "Selecciona una fila para tomar (1-" << numJugadores << "): ";
                     cin >> filaSeleccionada;
                 } while (ronda.obtenerFila(filaSeleccionada - 1).estaVacia() || (filaSeleccionada > numJugadores || filaSeleccionada < 1));
 
-                jugadorActual.tomarFila(ronda.obtenerFila(filaSeleccionada - 1));
+                jugadorActual.tomarFila(ronda.obtenerFila(filaSeleccionada - 1));*/
 
             } else {
                 int accion;
@@ -101,7 +114,8 @@ int main() {
                             cin >> decision;
 
                             if (decision == 1) {
-                                Carta carta = mazo.tomarCarta();
+                                jalarCarta(&mazo, &numJugadores, &ronda);
+                               /*Carta carta = mazo.tomarCarta();
                                 cout << "Has robado: " << carta.toString() << endl;
 
                                 do {
@@ -109,7 +123,7 @@ int main() {
                                     cin >> filaSeleccionada;
 
                                 } while (!ronda.agregarCartaAFila(filaSeleccionada - 1, carta));
-                                filaTomada = true;
+                                filaTomada = true;*/
                             }
                         } else {
                             jugadorActual.tomarFila(ronda.obtenerFila(filaSeleccionada - 1));
@@ -123,15 +137,18 @@ int main() {
                 }
             }
         }
-
-
         for (int i = 0; i < numJugadores; i++) {
-            jugadores[i].ajustarPuntuacion(puntuacion.calcularPuntuacion(jugadores[i]));
             jugadores[i].mostrarMano();
-
-            cout << "Puntos del jugador: " << jugadores[i].obtenerPuntuacion() << endl;
         }
-
     }
+
+    for (int i = 0; i < numJugadores; i++) {
+        jugadores[i].ajustarPuntuacion(puntuacion.calcularPuntuacion(jugadores[i]));
+        jugadores[i].mostrarMano();
+
+        cout << "Puntos del jugador: " << jugadores[i].obtenerPuntuacion() << endl;
+    }
+
+
     return 0;
 }

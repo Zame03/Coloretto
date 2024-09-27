@@ -91,40 +91,6 @@ public:
     }
 };
 
-/*void calcularPuntuacion(bool ladoPuntuacion) {
-    std::map<std::string, int> coloresContador;
-    int puntosExtra = 0;
 
-    // Contar cuántas cartas de cada color y cartas '+2'
-    for (const auto& carta : mano) {
-        if (carta.obtenerTipo() == "color") {
-            coloresContador[carta.obtenerColor()]++;
-        } else if (carta.obtenerTipo() == "+2") {
-            puntosExtra += 2;
-        }
-        // definir los comodines de color para
-
-    }
-
-    puntuacion = puntosExtra;
-    for (const auto& [color, cantidad] : coloresContador) {
-        puntuacion += calcularPuntuacionPorColor(cantidad, ladoPuntuacion);
-    }
-
-
-
-    std::cout << "Puntuación de " << nombre << ": " << puntuacion << " puntos." << std::endl;
-}
-
-// Tabla de puntuación elsedel lado café y violeta
-int calcularPuntuacionPorColor(int cantidad, bool ladoCafe) const {
-    if (cantidad == 1) return 1;
-    else if (cantidad == 2) return ladoCafe ? 3 : 4;
-    else if (cantidad == 3) return ladoCafe ? 6 : 8;
-    else if (cantidad == 4) return ladoCafe ? 10 : 7;
-    else if (cantidad == 5) return ladoCafe ? 15 : 6;
-    else if (cantidad >= 6) return ladoCafe ? 21 : 5;
-    return 0;
-}*/
 
 #endif //PUNTUACION_H
