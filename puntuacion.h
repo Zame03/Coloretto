@@ -10,6 +10,7 @@ class Puntuacion {
 private:
     std::map<int, int> puntuacion;
     std::map<std::string, int> puntajeColor;
+    std::map<std::string, int> puntajeComodin;
 
 
 public:
@@ -49,23 +50,29 @@ public:
         puntajeColor["morado"] = 0;
         puntajeColor["naranja"] = 0;
         puntajeColor["marron"] = 0;
-        puntajeColor["comodin"] = 0;
-        puntajeColor["comodinDorado"] = 0;
-        puntajeColor["+2"] = 0;
+
+        puntajeComodin["comodin"] = 0;
+        puntajeComodin["comodinDorado"] = 0;
+        puntajeComodin["+2"] = 0;
 
         vector<Carta> mano = jugador.obtenerMano();
-        int puntos = 0;
+        int puntosColor = 0;
+        int puntosMasDos = 0;
 
         for (const auto& carta : mano) {
             puntajeColor[carta.obtenerColor()]++;
         }
 
-        puntos = puntajeColor["+2"] * 2;
+        for (const auto& carta : mano) {
+            puntajeComodin[carta.obtenerColor()]++;
+        }
 
-        int comodines =puntajeColor["comodin"] + puntajeColor["comodinDorado"];
 
-        for (int i = 0; i <= comodines; i++) {
-            int numeros = comodines;
+        puntosMasDos = puntajeComodin["+2"] * 2;
+
+        int comodines = puntajeComodin["comodin"] + puntajeComodin["comodinDorado"];
+
+        for (int i = 0; i < comodines; i++) {
             int j = 0;
             int eleccion = 0;
             cout << "Jugador: " <<jugador.getNombre() <<", tienes " << comodines - i << " comodines, asignalos a un color: " << endl;
@@ -79,18 +86,17 @@ public:
             cin >> eleccion;
             puntajeColor[colores[eleccion]] += 1;
             comodines--;
-
         }
 
         for (const auto& color : colores) {
             for (int i = 0; i < color.size(); i++) {
                 if (puntajeColor[color] == i) {
-                    puntos += puntuacion[i];
+                    puntosColor += puntuacion[i];
                 }
             }
         }
 
-        return puntos;
+        return puntosColor + puntosMasDos;
     }
 };
 

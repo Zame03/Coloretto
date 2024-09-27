@@ -41,10 +41,6 @@ int main() {
 
     vector<Carta> cartas = mazo.getCards();
 
-    for (size_t i = 0; i < cartas.size(); i++) {
-        std::cout << cartas[i].obtenerTipo() << " ";  // Acceder a los elementos con vector[i]
-    }
-
     int turno = 0;
     int numRonda = 0;
 
@@ -153,8 +149,6 @@ int main() {
             ultimaRonda = 2;
         }
     }
-
-
 
     for (int i = 0; i < numJugadores; i++) {
         jugadores[i].ajustarPuntuacion(puntuacion.calcularPuntuacion(jugadores[i]));
