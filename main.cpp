@@ -28,6 +28,7 @@ void jalarCarta(Mazo* mazo, const int numJugadores, Ronda& ronda) {
 
 
 int main() {
+    int ultimaRonda;
     int numJugadores = 0;
 
     do {
@@ -54,7 +55,11 @@ int main() {
     Puntuacion puntuacion = Puntuacion();
 
 
-    while (!mazo.estaVacio() && !mazo.esUltimaRonda()) {
+    while (!mazo.estaVacio() && ultimaRonda != 2) {
+        ultimaRonda = mazo.esUltimaRonda();
+
+
+
         numRonda += 1;
         cout << "Iniciamos la ronda #" << numRonda << endl;
 
@@ -143,7 +148,13 @@ int main() {
             }
 
         }
+
+        if (ultimaRonda == 1) {
+            ultimaRonda = 2;
+        }
     }
+
+
 
     for (int i = 0; i < numJugadores; i++) {
         jugadores[i].ajustarPuntuacion(puntuacion.calcularPuntuacion(jugadores[i]));

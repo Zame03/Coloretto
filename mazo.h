@@ -49,6 +49,8 @@ public:
         // Se inserta la carta de ultima ronda
         Carta UltimaRonda = Carta("ultimaRonda", "ultimaRonda");
         cartas.insert(cartas.begin() + 70, UltimaRonda);
+        //cartas.insert(cartas.begin() + 16, Carta("comodin", "comodin"));
+        //cartas.insert(cartas.begin() + 70, Carta("comodinDorado", "comodinDorado"));
     }
 
     Carta tomarCarta() {

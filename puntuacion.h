@@ -62,23 +62,23 @@ public:
 
         puntos = puntajeColor["+2"] * 2;
 
+        int comodines =puntajeColor["comodin"] + puntajeColor["comodinDorado"];
 
-
-        for (int i = 0; i < puntajeColor["comodin"] + puntajeColor["comodinDorado"]; i++) {
+        for (int i = 0; i <= comodines; i++) {
+            int numeros = comodines;
+            int j = 0;
             int eleccion = 0;
-            cout << "Tienes " <<puntajeColor["comodin"] << " comodines, asignalos a un color: " << endl;
+            cout << "Jugador: " <<jugador.getNombre() <<", tienes " << comodines - i << " comodines, asignalos a un color: " << endl;
 
             for (const auto& color : colores) {
-                int j = 0;
-
                 cout << j << ". " << color << endl;
 
-
-                i++;
+                j++;
             }
 
             cin >> eleccion;
             puntajeColor[colores[eleccion]] += 1;
+            comodines--;
 
         }
 

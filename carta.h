@@ -28,19 +28,19 @@ public:
         std::string resultado;
         if (tipo == "color") {
             if (color == "rojo") {
-                resultado = colorize("Color (" + color + ")", RED);
+                resultado = colorize((color), RED);
             } else if (color == "verde") {
-                resultado = colorize("Color (" + color + ")", LGREEN);
+                resultado = colorize((color), LGREEN);
             } else if (color == "amarillo") {
-                resultado = colorize("Color (" + color + ")", YELLOW);
+                resultado = colorize((color), YELLOW);
             } else if (color == "azul") {
-                resultado = colorize("Color (" + color + ")", LBLUE);
+                resultado = colorize((color), LBLUE);
             }else if (color == "morado") {
-                resultado = colorize("Color (" + color + ")", MAGENTA);
+                resultado = colorize((color), MAGENTA);
             }else if (color == "marron"){
-                resultado = colorize("Color (" + color +")", BROWN);
+                resultado = colorize((color), BROWN);
             }else if (color == "naranja"){
-                resultado = colorize("Color (" + color + ")", ORANGE);
+                resultado = colorize((color), ORANGE);
             } else {
                 resultado = "Color (" + color + ")";
             }
