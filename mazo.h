@@ -34,7 +34,7 @@ public:
         // 3 comodines
         cartas.push_back(Carta("comodin", "comodin"));
         cartas.push_back(Carta("comodin", "comodin"));
-        cartas.push_back(Carta("comodin dorado", "comodin"));
+        cartas.push_back(Carta("comodin dorado", "comodin dorado"));
 
         // 1 carta de 'última ronda'
         // cartas.push_back(Carta("ultimaRonda", "ultimaRonda"));
@@ -46,7 +46,7 @@ public:
 
         // Se inserta la carta de ultima ronda
         Carta UltimaRonda = Carta("ultimaRonda", "ultimaRonda");
-        cartas.insert(cartas.begin(), 70, UltimaRonda);
+        cartas.insert(cartas.begin() + 70, UltimaRonda);
     }
 
     Carta tomarCarta() {
