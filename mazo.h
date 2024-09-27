@@ -31,7 +31,8 @@ public:
             cartas.push_back(Carta("+2", "+2"));
         }
 
-        // 2 comodines
+        // 3 comodines
+        cartas.push_back(Carta("comodin", "comodin"));
         cartas.push_back(Carta("comodin", "comodin"));
         cartas.push_back(Carta("comodin dorado", "comodin"));
 
@@ -44,8 +45,8 @@ public:
         std::random_shuffle(cartas.begin(), cartas.end());
 
         // Se inserta la carta de ultima ronda
-        Carta UltimaRonda = Carta("ultima ronda", "ultima ronda");
-        cartas.insert(cartas.begin(), 15, UltimaRonda);
+        Carta UltimaRonda = Carta("ultimaRonda", "ultimaRonda");
+        cartas.insert(cartas.begin(), 70, UltimaRonda);
     }
 
     Carta tomarCarta() {
@@ -60,6 +61,9 @@ public:
 
     int obtenerCartasRestantes() const {
         return cartas.size();
+    }
+    vector<Carta> getCards() {
+        return cartas;
     }
 };
 

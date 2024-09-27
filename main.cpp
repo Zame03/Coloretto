@@ -5,9 +5,11 @@
 #include "ronda.h"
 #include "puntuacion.h"
 
+#include "carta.h"
+
 using namespace std;
 
-void jalarCarta(Mazo* mazo, const int* numJugadores, Ronda* ronda) {
+void jalarCarta(Mazo* mazo, const int numJugadores, Ronda* ronda) {
     int filaSeleccionada = 0;
     Carta carta = mazo->tomarCarta();
     cout<<"Has robado: "<< carta.toString() << endl;
@@ -30,6 +32,13 @@ int main() {
 
     vector<Jugador> jugadores;
     Mazo mazo;
+
+    vector<Carta> cartas = mazo.getCards();
+
+    for (size_t i = 0; i < cartas.size(); i++) {
+        std::cout << cartas[i].obtenerTipo() << " ";  // Acceder a los elementos con vector[i]
+    }
+
     int turno = 0;
     int numRonda = 0;
 
@@ -56,6 +65,10 @@ int main() {
 
             while (!jugadorActual.estadoJugador()) {
                 turno += 1;
+                if (turno >= numJugadores - 1) {
+                    turno = 0;
+                }
+
                 jugadorActual = jugadores[turno];
             }
 
@@ -85,7 +98,7 @@ int main() {
                 cin >> accion;
 
                 if (accion == 1) {
-                    jalarCarta(&mazo, &numJugadores, &ronda);
+                    jalarCarta(&mazo, numJugadores, &ronda);
 
                 } else if (accion == 2) {
                     // Tomar una fila
@@ -93,8 +106,11 @@ int main() {
                     bool filaTomada = false;
 
                     do {
-                        std::cout << "Selecciona una fila para tomar (1-" << numJugadores << "): ";
-                        std::cin >> filaSeleccionada;
+                        do {
+                            std::cout << "Selecciona una fila para tomar (1-" << numJugadores << "): ";
+                            std::cin >> filaSeleccionada;
+                        } while (filaSeleccionada < 1 || filaSeleccionada > numJugadores );
+
 
                         if (ronda.obtenerFila(filaSeleccionada - 1).estaVacia()) {
                             int decision;
@@ -103,7 +119,7 @@ int main() {
                             cin >> decision;
 
                             if (decision == 1) {
-                                jalarCarta(&mazo, &numJugadores, &ronda);
+                                jalarCarta(&mazo, numJugadores, &ronda);
 
                             }
                         } else {
