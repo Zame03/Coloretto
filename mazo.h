@@ -18,7 +18,7 @@ public:
     }
 
     void generarCartas() {
-        std::string colores[] = {"rojo", "verde", "azul", "amarillo", "morado", "naranja", "rosa"};
+        std::string colores[] = {"rojo", "verde", "azul", "amarillo", "morado", "naranja", "marron"};
         // 63 cartas de colores, 9 de cada uno de los 7 colores
         for (const auto& color : colores) {
             for (int i = 0; i < 9; ++i) {

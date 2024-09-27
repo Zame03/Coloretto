@@ -40,7 +40,7 @@ public:
     }
 
     int calcularPuntuacion(Jugador jugador) {
-        std::string colores[] = {"rojo", "verde", "azul", "amarillo", "morado", "naranja", "rosa"};
+        std::string colores[] = {"rojo", "verde", "azul", "amarillo", "morado", "naranja", "marron"};
 
         puntajeColor["rojo"] = 0;
         puntajeColor["verde"] = 0;
@@ -48,7 +48,7 @@ public:
         puntajeColor["amarillo"] = 0;
         puntajeColor["morado"] = 0;
         puntajeColor["naranja"] = 0;
-        puntajeColor["rosa"] = 0;
+        puntajeColor["marron"] = 0;
         puntajeColor["comodin"] = 0;
         puntajeColor["+2"] = 0;
 

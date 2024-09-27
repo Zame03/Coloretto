@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void jalarCarta(Mazo* mazo, int* numJugadores, Ronda* ronda) {
+void jalarCarta(Mazo* mazo, const int* numJugadores, Ronda* ronda) {
     int filaSeleccionada = 0;
     Carta carta = mazo->tomarCarta();
     cout<<"Has robado: "<< carta.toString() << endl;
@@ -19,8 +19,10 @@ void jalarCarta(Mazo* mazo, int* numJugadores, Ronda* ronda) {
 
 }
 
+
 int main() {
-    int numJugadores;
+    int numJugadores = 0;
+
     do {
         cout << "Bienvenido a Coloretto. Ingresa el numero de jugadores (3-5): ";
         cin >> numJugadores;
@@ -46,11 +48,7 @@ int main() {
 
         for (int i = 0; i < numJugadores; i++) {
             jugadores[i].cambiarEstadoRonda(true);
-
-
-
-            // mostrar barajas de los jugadores
-            // mostrar puntos que aportan cada una de las pilas de cartas del mismo color
+            jugadores[i].mostrarMano();
         }
 
         while (!ronda.todasFilasInactiva()) {
@@ -72,16 +70,14 @@ int main() {
             ronda.mostrarFilas();
 
             if (ronda.todasFilasLlenas()) {
-                jalarCarta(&mazo, &numJugadores, &ronda);
-
-                /*cout << "Todas las filas están llenas. " << jugadorActual.getNombre() << " debe tomar una fila." << endl;
+                cout << "Todas las filas están llenas. " << jugadorActual.getNombre() << " debe tomar una fila." << endl;
                 int filaSeleccionada;
                 do {
                     cout << "Selecciona una fila para tomar (1-" << numJugadores << "): ";
                     cin >> filaSeleccionada;
                 } while (ronda.obtenerFila(filaSeleccionada - 1).estaVacia() || (filaSeleccionada > numJugadores || filaSeleccionada < 1));
 
-                jugadorActual.tomarFila(ronda.obtenerFila(filaSeleccionada - 1));*/
+                jugadorActual.tomarFila(ronda.obtenerFila(filaSeleccionada - 1));
 
             } else {
                 int accion;
@@ -89,14 +85,7 @@ int main() {
                 cin >> accion;
 
                 if (accion == 1) {
-                    Carta carta = mazo.tomarCarta();
-                    cout << "Has robado: " << carta.toString() << endl;
-
-                    int filaSeleccionada;
-                    do {
-                        cout << "Selecciona una fila para colocar la carta (1-" << numJugadores << "): ";
-                        cin >> filaSeleccionada;
-                    } while (!ronda.agregarCartaAFila(filaSeleccionada - 1, carta));
+                    jalarCarta(&mazo, &numJugadores, &ronda);
 
                 } else if (accion == 2) {
                     // Tomar una fila
@@ -115,15 +104,7 @@ int main() {
 
                             if (decision == 1) {
                                 jalarCarta(&mazo, &numJugadores, &ronda);
-                               /*Carta carta = mazo.tomarCarta();
-                                cout << "Has robado: " << carta.toString() << endl;
 
-                                do {
-                                    cout << "Selecciona una fila para colocar la carta (1 - " << numJugadores << "): ";
-                                    cin >> filaSeleccionada;
-
-                                } while (!ronda.agregarCartaAFila(filaSeleccionada - 1, carta));
-                                filaTomada = true;*/
                             }
                         } else {
                             jugadorActual.tomarFila(ronda.obtenerFila(filaSeleccionada - 1));
@@ -136,9 +117,7 @@ int main() {
 
                 }
             }
-        }
-        for (int i = 0; i < numJugadores; i++) {
-            jugadores[i].mostrarMano();
+
         }
     }
 

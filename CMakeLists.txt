@@ -9,4 +9,5 @@ add_executable(ColorettoManu main.cpp
         mazo.h
         fila.h
         ronda.h
-        puntuacion.h)
+        puntuacion.h
+        colors.h)
