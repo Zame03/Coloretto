@@ -1,0 +1,2 @@
+Diagrama de Clases: 
+https://miro.com/welcomeonboard/WDVQTmd4R0dLWkF3MHpXS1pPV3BLZ0VKTGtSVnBDRzE2a0U4SjhBb2FtMmx5SGtDeUJlOWNmTmdZN2lHaURjbXwzNDU4NzY0NjAxMTk4MTQ5NjQzfDI=?share_link_id=144586646983
