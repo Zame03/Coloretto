@@ -1,0 +1,3 @@
+C:/Users/bedoy/CLionProjects/ColorettoManu/cmake-build-debug/CMakeFiles/ColorettoManu.dir
+C:/Users/bedoy/CLionProjects/ColorettoManu/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/bedoy/CLionProjects/ColorettoManu/cmake-build-debug/CMakeFiles/rebuild_cache.dir
