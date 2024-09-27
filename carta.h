@@ -47,9 +47,12 @@ public:
         } else if (tipo == "+2") {
             resultado = colorize("+2", BG_CYAN);
         } else if (tipo == "comodin") {
-            resultado = colorize("Comodín", BG_YELLOW);
+            resultado = colorize("Comodín", BG_GREEN);
         } else if (tipo == "ultimaRonda") {
             resultado = colorize("Última Ronda", BG_RED);
+        }
+        else if (tipo == "comodinDorado") {
+            resultado = colorize("Comodin Dorado", BG_YELLOW);
         }
         return resultado;
     }

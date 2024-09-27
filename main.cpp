@@ -9,15 +9,20 @@
 
 using namespace std;
 
-void jalarCarta(Mazo* mazo, const int numJugadores, Ronda* ronda) {
+void jalarCarta(Mazo* mazo, const int numJugadores, Ronda& ronda) {
     int filaSeleccionada = 0;
     Carta carta = mazo->tomarCarta();
     cout<<"Has robado: "<< carta.toString() << endl;
 
+    if (carta.obtenerTipo() == "ultimaRonda") {
+        cout<<"La proxima ronda sera la ultima!" << endl;
+
+    }
+
     do {
         cout << "Selecciona una fila para colocar la carta (1-" << numJugadores << "): ";
         cin >> filaSeleccionada;
-    } while (!ronda->agregarCartaAFila(filaSeleccionada - 1, carta));
+    } while (!ronda.agregarCartaAFila(filaSeleccionada - 1, carta));
 
 }
 
@@ -49,7 +54,7 @@ int main() {
     Puntuacion puntuacion = Puntuacion();
 
 
-    while (!mazo.estaVacio()) {
+    while (!mazo.estaVacio() && !mazo.esUltimaRonda()) {
         numRonda += 1;
         cout << "Iniciamos la ronda #" << numRonda << endl;
 
@@ -57,11 +62,14 @@ int main() {
 
         for (int i = 0; i < numJugadores; i++) {
             jugadores[i].cambiarEstadoRonda(true);
-            jugadores[i].mostrarMano();
         }
 
         while (!ronda.todasFilasInactiva()) {
             Jugador& jugadorActual = jugadores[turno];
+
+            for (int i = 0; i < numJugadores; i++) {
+                jugadores[i].mostrarMano();
+            }
 
             while (!jugadorActual.estadoJugador()) {
                 turno += 1;
@@ -90,7 +98,7 @@ int main() {
                     cin >> filaSeleccionada;
                 } while (ronda.obtenerFila(filaSeleccionada - 1).estaVacia() || (filaSeleccionada > numJugadores || filaSeleccionada < 1));
 
-                jugadorActual.tomarFila(ronda.obtenerFila(filaSeleccionada - 1));
+                jugadorActual.tomarFila(ronda.obtenerFila(filaSeleccionada - 1), mazo, ronda);
 
             } else {
                 int accion;
@@ -98,7 +106,7 @@ int main() {
                 cin >> accion;
 
                 if (accion == 1) {
-                    jalarCarta(&mazo, numJugadores, &ronda);
+                    jalarCarta(&mazo, numJugadores, ronda);
 
                 } else if (accion == 2) {
                     // Tomar una fila
@@ -119,11 +127,11 @@ int main() {
                             cin >> decision;
 
                             if (decision == 1) {
-                                jalarCarta(&mazo, numJugadores, &ronda);
+                                jalarCarta(&mazo, numJugadores, ronda);
 
                             }
                         } else {
-                            jugadorActual.tomarFila(ronda.obtenerFila(filaSeleccionada - 1));
+                            jugadorActual.tomarFila(ronda.obtenerFila(filaSeleccionada - 1), mazo, ronda);
                             filaTomada = true;
                         }
 

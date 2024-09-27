@@ -10,6 +10,7 @@ private:
     std::vector<Fila> filas;
     int numFilas;
 
+
 public:
     Ronda(int numJugadores) {
         numFilas = numJugadores;  // Número de filas igual al número de jugadores

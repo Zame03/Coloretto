@@ -7,6 +7,7 @@
 #include <map>
 #include "carta.h"
 #include "fila.h"
+#include "mazo.h"
 
 using namespace std;
 
@@ -31,9 +32,20 @@ public:
         return nombre;
     }
 
-    void tomarFila(Fila& fila) {
+    void tomarFila(Fila& fila, Mazo& mazo, Ronda &ronda) {
         std::vector<Carta> cartasFila = fila.tomarCartas();
+
         mano.insert(mano.end(), cartasFila.begin(), cartasFila.end());
+
+        for (int i = 0; i < cartasFila.size(); i++) {
+            if (cartasFila[i].obtenerTipo() == "comodinDorado") {
+                Carta cartaExtra = mazo.tomarCarta();
+                mano.insert(mano.end(), cartaExtra);
+                cout << "Hay un comodin dorado en la fila, toma otra carta: " << cartaExtra.toString() << endl;
+            };
+
+        }
+
         estadoRonda = false;
     }
 

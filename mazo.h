@@ -6,10 +6,12 @@
 #include <ctime>
 #include <cstdlib>
 #include "carta.h"
+#include "ronda.h"
 
 class Mazo {
 private:
     std::vector<Carta> cartas;
+    bool ultimaRonda = false;
 
 public:
     Mazo() {
@@ -34,7 +36,7 @@ public:
         // 3 comodines
         cartas.push_back(Carta("comodin", "comodin"));
         cartas.push_back(Carta("comodin", "comodin"));
-        cartas.push_back(Carta("comodin dorado", "comodin dorado"));
+        cartas.push_back(Carta("comodinDorado", "comodinDorado"));
 
         // 1 carta de 'última ronda'
         // cartas.push_back(Carta("ultimaRonda", "ultimaRonda"));
@@ -52,6 +54,14 @@ public:
     Carta tomarCarta() {
         Carta carta = cartas.back();
         cartas.pop_back();
+
+        if (carta.obtenerTipo() == "ultimaRonda") {
+            std::cout << carta.toString() << std::endl;
+            std::cout << "En la proxima ronda finalizara la partida" << std::endl;
+            ultimaRonda = true;
+
+            carta = tomarCarta();
+        }
         return carta;
     }
 
@@ -62,8 +72,13 @@ public:
     int obtenerCartasRestantes() const {
         return cartas.size();
     }
-    vector<Carta> getCards() {
+
+    std::vector<Carta> getCards() {
         return cartas;
+    }
+
+    bool esUltimaRonda() {
+        return ultimaRonda;
     }
 };
 

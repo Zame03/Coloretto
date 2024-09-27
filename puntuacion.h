@@ -50,6 +50,7 @@ public:
         puntajeColor["naranja"] = 0;
         puntajeColor["marron"] = 0;
         puntajeColor["comodin"] = 0;
+        puntajeColor["comodinDorado"] = 0;
         puntajeColor["+2"] = 0;
 
         vector<Carta> mano = jugador.obtenerMano();
@@ -61,7 +62,9 @@ public:
 
         puntos = puntajeColor["+2"] * 2;
 
-        for (int i = 0; i < puntajeColor["comodin"]; i++) {
+
+
+        for (int i = 0; i < puntajeColor["comodin"] + puntajeColor["comodinDorado"]; i++) {
             int eleccion = 0;
             cout << "Tienes " <<puntajeColor["comodin"] << " comodines, asignalos a un color: " << endl;
 
