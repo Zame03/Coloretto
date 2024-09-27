@@ -125,6 +125,13 @@ int main() {
         }
 
 
+        for (int i = 0; i < numJugadores; i++) {
+            jugadores[i].ajustarPuntuacion(puntuacion.calcularPuntuacion(jugadores[i]));
+            jugadores[i].mostrarMano();
+
+            cout << "Puntos del jugador: " << jugadores[i].obtenerPuntuacion() << endl;
         }
-    return 0;
+
     }
+    return 0;
+}

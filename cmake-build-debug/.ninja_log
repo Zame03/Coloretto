@@ -1,4 +1,22 @@
 # ninja log v6
-25	542	7491012463664031	build.ninja	6d966dbbf859ca49
+25	542	7491037267678970	build.ninja	6d966dbbf859ca49
 1004	1161	7490732987049120	ColorettoManu.exe	8b96e1f39c4de27e
 7	1003	7490732977082791	CMakeFiles/ColorettoManu.dir/main.cpp.obj	af3d5c3769f9fd56
+16	1336	7491063622316326	CMakeFiles/ColorettoManu.dir/main.cpp.obj	7b87fffb73752db6
+1336	1594	7491063635511469	ColorettoManu.exe	8b96e1f39c4de27e
+12	1620	7491117290244255	CMakeFiles/ColorettoManu.dir/main.cpp.obj	7b87fffb73752db6
+1621	2098	7491117306335146	ColorettoManu.exe	8b96e1f39c4de27e
+15	1842	7491118109867221	CMakeFiles/ColorettoManu.dir/main.cpp.obj	7b87fffb73752db6
+1843	2195	7491118128153276	ColorettoManu.exe	8b96e1f39c4de27e
+11	1514	7491121339087161	CMakeFiles/ColorettoManu.dir/main.cpp.obj	7b87fffb73752db6
+1515	1825	7491121354130726	ColorettoManu.exe	8b96e1f39c4de27e
+13	1444	7491122906639884	CMakeFiles/ColorettoManu.dir/main.cpp.obj	7b87fffb73752db6
+1444	1758	7491122920947126	ColorettoManu.exe	8b96e1f39c4de27e
+12	1811	7491133570225837	CMakeFiles/ColorettoManu.dir/main.cpp.obj	7b87fffb73752db6
+1812	2135	7491133588224137	ColorettoManu.exe	8b96e1f39c4de27e
+13	1401	7491137259272891	CMakeFiles/ColorettoManu.dir/main.cpp.obj	7b87fffb73752db6
+1402	1710	7491137273164655	ColorettoManu.exe	8b96e1f39c4de27e
+12	1556	7491139511631230	CMakeFiles/ColorettoManu.dir/main.cpp.obj	7b87fffb73752db6
+1557	1884	7491139527088279	ColorettoManu.exe	8b96e1f39c4de27e
+11	1518	7491148562668447	CMakeFiles/ColorettoManu.dir/main.cpp.obj	7b87fffb73752db6
+1518	1829	7491148577738066	ColorettoManu.exe	8b96e1f39c4de27e
